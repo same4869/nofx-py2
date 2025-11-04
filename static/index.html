@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open NOF1.ai - 交易监控</title>
+    <meta name="description" content="AI驱动的加密货币自动交易系统 - 实时监控">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 Open NOF1.ai</h1>
+            <p class="subtitle">AI驱动的加密货币自动交易系统</p>
+            <div class="update-time">最后更新: <span id="lastUpdate">--</span></div>
+        </header>
+
+        <!-- Account Summary -->
+        <section class="section account-summary">
+            <h2>📊 账户总览</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">总资产</div>
+                    <div class="stat-value" id="totalBalance">--</div>
+                    <div class="stat-unit">USDT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">可用余额</div>
+                    <div class="stat-value" id="availableBalance">--</div>
+                    <div class="stat-unit">USDT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">未实现盈亏</div>
+                    <div class="stat-value" id="unrealisedPnl">--</div>
+                    <div class="stat-unit">USDT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">收益率</div>
+                    <div class="stat-value" id="returnPercent">--</div>
+                    <div class="stat-unit">%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trading Statistics -->
+        <section class="section trading-stats">
+            <h2>📈 交易统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">总交易次数</div>
+                    <div class="stat-value" id="totalTrades">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">胜率</div>
+                    <div class="stat-value" id="winRate">--</div>
+                    <div class="stat-unit">%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">总盈亏</div>
+                    <div class="stat-value" id="totalPnl">--</div>
+                    <div class="stat-unit">USDT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">最大单笔盈利</div>
+                    <div class="stat-value" id="maxWin">--</div>
+                    <div class="stat-unit">USDT</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Positions -->
+        <section class="section positions">
+            <h2>💼 当前持仓</h2>
+            <div id="positionsContainer">
+                <p class="loading">加载中...</p>
+            </div>
+        </section>
+
+        <!-- Recent Trades -->
+        <section class="section trades">
+            <h2>📜 最近交易</h2>
+            <div id="tradesContainer">
+                <p class="loading">加载中...</p>
+            </div>
+        </section>
+
+        <!-- Market Prices -->
+        <section class="section prices">
+            <h2>💰 实时价格</h2>
+            <div id="pricesContainer">
+                <p class="loading">加载中...</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Open NOF1.ai v1.0.0 | Python版 | 
+                <a href="https://github.com/195440/open-nof1.ai" target="_blank">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
+
