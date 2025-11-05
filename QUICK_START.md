@@ -9,10 +9,8 @@
 ### 必需条件
 - ✅ Python 3.9或更高版本
 - ✅ Gate.io账户和API密钥
+- ✅ DeepSeek 或 OpenAI API密钥（推荐 DeepSeek）
 - ✅ 10分钟时间
-
-### 可选条件
-- OpenAI API密钥（用于AI决策，可选）
 
 ---
 
@@ -37,22 +35,28 @@ pip install -r requirements.txt
 
 ### 第二步：配置
 
+创建 `.env` 文件并配置：
+
 ```bash
-# 1. 复制配置文件
-cp .env.example .env
-
-# 2. 编辑.env文件
-vi .env  # 或使用你喜欢的编辑器
-
-# 3. 必须配置的项：
+# ========== Gate.io API（必填）==========
 GATE_API_KEY=your_gate_api_key_here
 GATE_API_SECRET=your_gate_api_secret_here
 GATE_USE_TESTNET=true  # 建议先用测试网
 
-# 4. 可选配置的项：
-OPENAI_API_KEY=your_openai_key_here  # 用于AI决策
-TRADING_STRATEGY=balanced  # 交易策略
+# ========== DeepSeek AI（推荐）==========
+OPENAI_API_KEY=your_deepseek_api_key_here
+OPENAI_BASE_URL=https://api.deepseek.com
+OPENAI_MODEL=deepseek-chat
+
+# ========== 交易策略 ==========
+TRADING_STRATEGY=balanced  # 平衡策略（推荐）
+MAX_LEVERAGE=10
+MAX_POSITIONS=5
 ```
+
+> 💡 **DeepSeek API Key 获取**：访问 [platform.deepseek.com](https://platform.deepseek.com/) 注册并创建
+> 
+> 📖 **详细配置**：查看 [DeepSeek 配置指南](DEEPSEEK_SETUP.md)
 
 ### 第三步：运行
 
@@ -255,13 +259,10 @@ PORT=3100  # 改为你想要的端口
 
 ## 📚 进一步学习
 
-### 文档资源
-- [完整README](README.md) - 项目完整介绍
-- [文档索引](INDEX.md) - 所有文档导航
-- [项目完成总结](PROJECT_COMPLETE.md) - 详细技术说明
-
-### 阶段文档
-- [阶段1-7完成报告](PHASE1_COMPLETE.md) - 各阶段详细文档
+### 📚 相关文档
+- [README](README.md) - 项目概览和功能介绍
+- [DeepSeek 配置](DEEPSEEK_SETUP.md) - AI 配置详解
+- [更新日志](CHANGELOG.md) - 版本更新记录
 
 ---
 

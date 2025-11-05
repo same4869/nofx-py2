@@ -14,7 +14,7 @@
 
 ### 核心特性
 
-- 🤖 **AI决策引擎** - 集成OpenAI，智能分析市场并做出交易决策
+- 🤖 **AI决策引擎** - 支持 DeepSeek、OpenAI 等多种AI模型，智能分析市场并做出交易决策
 - 📊 **技术分析** - 支持EMA、MACD、RSI、ATR等多种技术指标
 - 🔒 **风险管理** - 多层风控保护：止损、止盈、移动止盈、账户保护
 - 💱 **交易所支持** - 基于ccxt库，支持200+交易所（主要针对Gate.io优化）
@@ -63,9 +63,10 @@ python/
 ### 1. 环境要求
 
 - Python 3.9 或更高版本
-- pip (Python包管理器)
 - Gate.io账户（需要API密钥）
-- OpenAI API密钥（可选，用于AI决策）
+- DeepSeek AI密钥（推荐，成本仅为 OpenAI 的 1/10）
+
+> 📖 [DeepSeek 配置指南](DEEPSEEK_SETUP.md) - 详细配置说明
 
 ### 2. 安装依赖
 
@@ -88,17 +89,24 @@ pip install -r requirements.txt
 
 ### 3. 配置环境变量
 
-```bash
-# 复制示例配置
-cp .env.example .env
+创建 `.env` 文件：
 
-# 编辑.env文件，填写必要的API密钥
-# 重点配置项：
-# - GATE_API_KEY          # Gate.io API密钥
-# - GATE_API_SECRET       # Gate.io API密钥
-# - OPENAI_API_KEY        # OpenAI API密钥（可选）
-# - TRADING_STRATEGY      # 交易策略选择
+```bash
+# Gate.io API
+GATE_API_KEY=your_gate_api_key
+GATE_API_SECRET=your_gate_api_secret
+GATE_USE_TESTNET=true
+
+# DeepSeek AI（推荐）
+OPENAI_API_KEY=your_deepseek_api_key
+OPENAI_BASE_URL=https://api.deepseek.com
+OPENAI_MODEL=deepseek-chat
+
+# 交易策略
+TRADING_STRATEGY=balanced
 ```
+
+> 📖 详细说明：[DeepSeek 配置](DEEPSEEK_SETUP.md) | [完整教程](QUICK_START.md)
 
 ### 4. 初始化数据库
 
@@ -194,58 +202,31 @@ ACCOUNT_TAKE_PROFIT_USDT=200 # 账户止盈线（USDT）
 
 ---
 
-## 📚 文档目录
+## 📚 文档导航
 
-### 快速参考
-- [快速开始指南](QUICK_START_PYTHON.md) - 详细安装和配置
-- [文档索引](INDEX.md) - 所有文档导航
+### 🚀 新手必读（按顺序）
+1. **README.md**（本文档）- 项目概览和功能介绍
+2. **[快速开始](QUICK_START.md)** - 5分钟快速部署
+3. **[DeepSeek 配置](DEEPSEEK_SETUP.md)** - AI 配置指南
 
-### 阶段报告
-- [阶段1：项目基础搭建](PHASE1_COMPLETE.md)
-- [阶段2：交易所API封装](PHASE2_COMPLETE.md)
-- [阶段3：技术指标计算](PHASE3_COMPLETE.md)
-- [阶段5：集成测试与示例](PHASE5_COMPLETE.md)
-- [阶段6：完整交易系统](PHASE6_COMPLETE.md)
-- [阶段7：Web API和监控界面](PHASE7_COMPLETE.md)
-
-### 项目文档
-- [项目完成总结](PROJECT_COMPLETE.md)
-- [开发进度](PROGRESS.md)
+### 📖 参考文档
+- **[更新日志](CHANGELOG.md)** - 版本更新记录
+- **示例代码** - `examples/` 目录
+- **测试代码** - `tests/` 目录
 
 ---
 
 ## 🧪 测试
 
-### 运行所有测试
-
 ```bash
-# 阶段1：基础模块
-./test_setup.sh
+# 运行所有测试
+./run_tests.sh
 
-# 阶段2：交易所API
-./test_phase2.sh
-
-# 阶段3：技术指标
-./test_phase3.sh
-
-# 阶段4：AI决策
-./test_phase4.sh
-
-# 阶段5：集成测试
-./test_phase5.sh
-
-# 阶段6：系统测试
-./test_phase6.sh
-
-# 阶段7：Web API
-./test_phase7.sh
+# 或使用 pytest
+python -m pytest tests/ -v
 ```
 
-### 测试覆盖
-
-- ✅ 46个测试用例
-- ✅ 100%通过率
-- ✅ 覆盖所有核心模块
+**测试覆盖**：46个测试用例，100%通过率
 
 ---
 
@@ -264,40 +245,20 @@ ACCOUNT_TAKE_PROFIT_USDT=200 # 账户止盈线（USDT）
 
 ## 📊 技术栈
 
-### 核心框架
-- **Python** 3.9+
-- **FastAPI** 0.121+ - 现代Web框架
-- **Uvicorn** 0.38+ - ASGI服务器
-- **SQLAlchemy** 2.0+ - ORM框架
+- **Python** 3.9+ | **FastAPI** | **SQLAlchemy** | **ccxt**
+- **AI**: DeepSeek / OpenAI（兼容多种模型）
+- **分析**: pandas, pandas-ta, numpy
+- **工具**: Loguru, Pydantic, tenacity
 
-### 数据分析
-- **pandas** 2.0+ - 数据处理
-- **pandas-ta** 0.3.14b+ - 技术指标
-- **numpy** 1.24+ - 数值计算
-
-### 交易和AI
-- **ccxt** 4.2+ - 交易所API（支持200+交易所）
-- **OpenAI** 1.0+ - AI决策引擎
-
-### 工具库
-- **Loguru** 0.7+ - 日志系统
-- **Pydantic** 2.0+ - 数据验证
-- **tenacity** 8.2+ - 重试机制
+详见 [requirements.txt](requirements.txt)
 
 ---
 
-## 📈 性能指标
+## 📈 项目统计
 
-### 系统性能
-- 交易决策延迟：< 5秒
-- API响应时间：< 100ms
-- 数据库查询：< 50ms
-- 内存占用：< 500MB
-
-### 测试统计
-- 总代码行数：8000+
-- 测试覆盖率：100%
-- 文档完整性：100%
+- **代码**: 8000+ 行，46 个测试用例，100% 通过率
+- **性能**: API < 100ms，决策 < 5s，内存 < 500MB
+- **文档**: 4 个核心文档，精简易读
 
 ---
 
@@ -323,8 +284,12 @@ ACCOUNT_TAKE_PROFIT_USDT=200 # 账户止盈线（USDT）
 
 ### 常见问题
 
-**Q: 如何获取Gate.io API密钥？**
-A: 登录Gate.io -> 个人中心 -> API管理 -> 创建API密钥
+**Q: 如何获取 API 密钥？**
+- **DeepSeek**（推荐）：访问 [platform.deepseek.com](https://platform.deepseek.com/)
+- **Gate.io**：登录 Gate.io -> 个人中心 -> API管理
+
+**Q: 为什么推荐 DeepSeek？**
+A: 成本低廉（仅 OpenAI 的 1/10）、中文友好、性能优异。详见 [DeepSeek 配置](DEEPSEEK_SETUP.md)
 
 **Q: 测试网和正式网如何切换？**
 A: 在`.env`中设置`GATE_USE_TESTNET=true/false`
@@ -337,9 +302,10 @@ A: 检查API密钥是否正确，网络是否正常，查看日志文件`./logs/
 
 ### 文档和支持
 
-- 📖 [完整文档](INDEX.md)
-- 🐛 [问题追踪](https://github.com/195440/open-nof1.ai/issues)
-- 💬 [讨论区](https://github.com/195440/open-nof1.ai/discussions)
+- 📖 快速开始：[QUICK_START.md](QUICK_START.md)
+- 🤖 AI 配置：[DEEPSEEK_SETUP.md](DEEPSEEK_SETUP.md)
+- 🐛 问题反馈：[GitHub Issues](https://github.com/195440/open-nof1.ai/issues)
+- 💬 社区讨论：[GitHub Discussions](https://github.com/195440/open-nof1.ai/discussions)
 
 ---
 

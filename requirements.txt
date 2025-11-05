@@ -1,114 +1,76 @@
-# Open NOF1.ai - Python版本依赖
+# Open NOF1.ai - Python Dependencies
 
-# ==================== 核心依赖 ====================
+# ====================
+# Core Dependencies
+# ====================
 
-# 交易所API - 统一接口，支持200+交易所
+# Exchange API - Unified interface for 200+ exchanges
 ccxt>=4.2.0
 
-# 数据处理
-pandas>=2.0.0                # 数据分析
-numpy>=1.24.0                # 数值计算
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
 
-# 技术指标库
-pandas-ta>=0.3.14b          # 技术分析指标（推荐）
-# ta-lib                     # 备选方案（需要额外安装C库）
+# Technical Indicators
+pandas-ta>=0.3.14b
 
-# 数据库
-sqlalchemy>=2.0.0            # ORM
-aiosqlite>=0.19.0           # 异步SQLite支持
+# Database
+sqlalchemy>=2.0.0
+aiosqlite>=0.19.0
 
-# 环境配置
-python-dotenv>=1.0.0        # 环境变量管理
+# Configuration
+python-dotenv>=1.0.0
 
-# Web框架
-fastapi>=0.104.0            # 现代Web框架
-uvicorn[standard]>=0.24.0   # ASGI服务器
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
 
 # AI/LLM
-openai>=1.0.0               # OpenAI SDK（兼容多种LLM）
-# langchain>=0.1.0          # 可选：LLM应用框架
-# langchain-openai>=0.0.5   # 可选：LangChain的OpenAI集成
+openai>=1.0.0
 
-# 定时任务
-schedule>=1.2.0             # 简单的定时任务
-# apscheduler>=3.10.0       # 备选方案：高级调度器
+# Scheduling
+schedule>=1.2.0
 
-# 日志
-loguru>=0.7.0               # 更友好的日志库
+# Logging
+loguru>=0.7.0
 
-# 数据验证
-pydantic>=2.0.0             # 数据验证和序列化
-pydantic-settings>=2.0.0    # 配置管理
+# Data Validation
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
 
-# HTTP客户端
-httpx>=0.25.0               # 异步HTTP客户端
-aiohttp>=3.9.0              # 备选异步HTTP库
+# HTTP Clients
+httpx>=0.25.0
+aiohttp>=3.9.0
 
-# ==================== 工具库 ====================
+# ====================
+# Utility Libraries
+# ====================
 
-# 时间处理
-python-dateutil>=2.8.0      # 日期时间工具
-pytz>=2023.3                # 时区支持
+# Time Handling
+python-dateutil>=2.8.0
+pytz>=2023.3
 
-# 数据序列化
-orjson>=3.9.0               # 快速JSON序列化
+# JSON Serialization
+orjson>=3.9.0
 
-# 重试机制
-tenacity>=8.2.0             # 优雅的重试装饰器
+# Retry Mechanism
+tenacity>=8.2.0
 
-# ==================== 开发依赖 ====================
+# ====================
+# Development Dependencies
+# ====================
 
-# 测试
-pytest>=7.4.0               # 测试框架
-pytest-asyncio>=0.21.0      # 异步测试支持
-pytest-cov>=4.1.0           # 测试覆盖率
-pytest-mock>=3.12.0         # Mock工具
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
 
-# 代码质量
-black>=23.0.0               # 代码格式化
-ruff>=0.1.0                 # 快速linter
-mypy>=1.7.0                 # 类型检查
+# Code Quality
+black>=23.0.0
+ruff>=0.1.0
+mypy>=1.7.0
 
-# 文档
-mkdocs>=1.5.0              # 文档生成
-mkdocs-material>=9.4.0     # Material主题
-
-# ==================== 可选依赖 ====================
-
-# 性能监控
-# prometheus-client>=0.19.0  # Prometheus指标
-# psutil>=5.9.0             # 系统监控
-
-# 消息队列（如果需要分布式）
-# celery>=5.3.0             # 分布式任务队列
-# redis>=5.0.0              # Redis客户端
-
-# 数据可视化
-# matplotlib>=3.8.0         # 绘图
-# plotly>=5.18.0            # 交互式图表
-
-# 回测框架
-# backtrader>=1.9.0         # 回测框架
-# vectorbt>=0.25.0          # 向量化回测
-
-# ==================== 注意事项 ====================
-
-# 1. ta-lib 需要先安装C库：
-#    macOS: brew install ta-lib
-#    Ubuntu: sudo apt-get install ta-lib
-#    Windows: 下载预编译包 https://github.com/mrjbq7/ta-lib
-
-# 2. 推荐使用虚拟环境：
-#    python -m venv venv
-#    source venv/bin/activate  # Linux/Mac
-#    venv\Scripts\activate     # Windows
-
-# 3. 安装所有依赖：
-#    pip install -r requirements.txt
-
-# 4. 仅安装核心依赖（不含开发工具）：
-#    pip install -r requirements.txt --no-deps
-
-# 5. Python版本要求：
-#    Python >= 3.10 (推荐 3.11+)
-
+# Documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0

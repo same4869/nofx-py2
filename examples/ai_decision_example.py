@@ -48,9 +48,9 @@ async def get_ai_decision(prompt: str) -> str:
     )
     
     try:
-        # 调用GPT-4进行决策
+        # 调用AI模型进行决策（支持OpenAI、DeepSeek等）
         response = await client.chat.completions.create(
-            model=settings.OPENAI_MODEL or "gpt-4o-mini",
+            model=settings.OPENAI_MODEL or "deepseek-chat",
             messages=[
                 {
                     "role": "system",

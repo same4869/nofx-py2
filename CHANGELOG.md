@@ -7,6 +7,35 @@
 
 ---
 
+## [1.1.0] - 2025-11-05
+
+### ✨ 新增 - DeepSeek AI 支持
+
+- ✅ 完整支持 DeepSeek 官方 API
+- ✅ 设置 DeepSeek 为默认 AI 引擎（成本降低 90%）
+- ✅ 创建精简的 [DeepSeek 配置指南](DEEPSEEK_SETUP.md)
+- ✅ 支持多 AI 提供商切换（DeepSeek/OpenAI/OpenRouter）
+
+### 🔧 修复
+
+- 🐛 修复配置字段名不一致（`AI_MODEL_NAME` → `OPENAI_MODEL`）
+- 🐛 更新默认配置为 DeepSeek API
+- 🐛 统一所有 AI 模型引用
+
+### 📚 文档
+
+- 📝 更新 README 和 QUICK_START，添加 DeepSeek 配置
+- 📝 整合并精简文档，删除冗余内容
+- 📝 添加详细的配置示例和故障排查
+
+### 💡 优化
+
+- 💰 AI 成本降低 90%（DeepSeek vs OpenAI）
+- 🚀 中文交易决策质量提升
+- ⚡ AI 响应速度更快
+
+---
+
 ## [1.0.0] - 2025-11-04
 
 ### 🎉 首次发布

@@ -62,11 +62,11 @@ class Settings(BaseSettings):
     # ==================== AI 模型配置 ====================
     OPENAI_API_KEY: str = Field(default="", description="OpenAI兼容API密钥")
     OPENAI_BASE_URL: str = Field(
-        default="https://openrouter.ai/api/v1",
-        description="API基础地址"
+        default="https://api.deepseek.com",
+        description="API基础地址（支持OpenAI、DeepSeek等）"
     )
-    AI_MODEL_NAME: str = Field(
-        default="deepseek/deepseek-v3.2-exp",
+    OPENAI_MODEL: str = Field(
+        default="deepseek-chat",
         description="AI模型名称"
     )
     
@@ -162,7 +162,7 @@ def print_config_summary():
     print(f"最大持仓: {settings.MAX_POSITIONS}")
     print(f"交易币种: {', '.join(settings.trading_symbols_list)}")
     print(f"使用测试网: {'是' if settings.GATE_USE_TESTNET else '否'}")
-    print(f"AI模型: {settings.AI_MODEL_NAME}")
+    print(f"AI模型: {settings.OPENAI_MODEL}")
     print(f"日志级别: {settings.LOG_LEVEL}")
     print("=" * 80 + "\n")
 
